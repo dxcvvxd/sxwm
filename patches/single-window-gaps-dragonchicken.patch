@@ -38,7 +38,7 @@ index e50db00..8e0d47b 100644
  			float mf = (float)atoi(rest) / 100.0f;
  			for (int i = 0; i < MAX_MONITORS; i++)
 diff --git a/src/sxwm.c b/src/sxwm.c
-index e5cd9d4..9d03881 100644
+index e5cd9d4..49c55b5 100644
 --- a/src/sxwm.c
 +++ b/src/sxwm.c
 @@ -1546,6 +1546,8 @@ void init_defaults(void)
@@ -50,7 +50,7 @@ index e5cd9d4..9d03881 100644
  	user_config.border_width = 1;
  	user_config.border_foc_col = parse_col("#c0cbff");
  	user_config.border_ufoc_col = parse_col("#555555");
-@@ -2605,6 +2607,45 @@ void tile(void)
+@@ -2605,6 +2607,44 @@ void tile(void)
  	if (total == 0)
  		return;
  
@@ -59,9 +59,8 @@ index e5cd9d4..9d03881 100644
 +		for (Client *c = head; c; c = c->next) {
 +
 +			/* skip if not a tiled window */
-+			if (!c->mapped || c->fullscreen || c->floating) {
++			if (!c->mapped || c->fullscreen || c->floating)
 +				continue;
-+			}
 +
 +			int border_width = user_config.border_width;
 +
